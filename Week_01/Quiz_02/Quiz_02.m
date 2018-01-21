@@ -1,0 +1,1 @@
+clearx = [3,1,0,4]';y = [2,2,1,3]';function result = hypo(val)  theta0 = 0;  theta1 = 1;  result = theta0 + theta1 * val;endfunctionfunction result = costs(x,y)m = size(x)(1);scaling = 1/(2*m);all_hypo = hypo(x);all_diff = all_hypo-y;all_sqr = all_diff .^ 2;summ_vals = sum(all_sqr)result = scaling*summ_valsendfunctionhypo(4)tot_costs = costs(x,y)
