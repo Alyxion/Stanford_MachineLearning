@@ -1,0 +1,1 @@
+# Let J(θ)=2θ3+2. Let θ=1, and ϵ=0.01. # Use the formula J(θ+ϵ)−J(θ−ϵ)2ϵ to numerically compute an # approximation to the derivative at θ=1. What value do you get? # (When θ=1, the true/exact derivati ve is dJ(θ)dθ=6.)function quiz05  eps = 0.01;  theta = 1;  val = jerr(theta);   (jerr(theta+eps)-jerr(theta-eps))/(2*eps)endfunction

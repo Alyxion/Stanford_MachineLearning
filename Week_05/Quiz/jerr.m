@@ -1,0 +1,1 @@
+function ret = jerr(theta)   ret = 3*theta^4 + 4;endfunction
