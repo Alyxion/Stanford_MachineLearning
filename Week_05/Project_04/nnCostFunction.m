@@ -62,25 +62,72 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+% disp(size(Theta1))
+% disp(size(Theta2))
+% disp(size(X))
+% disp(size(y))
+% disp(size(a3))
+% >> 25   401
+% >> 10   26
+% >> 5000    400
+% >> 5000      1
+% >> 5000      10
 
+% Forward pass
+X = [ones(m, 1) X]; % extend one for bias
+z2 = X * Theta1';
+a2 = sigmoid(z2);
+a2 = [ones(size(a2), 1) a2];
+z3 = (Theta2 * a2')';
+a3 = sigmoid(z3);
 
+for k = 1:num_labels
+    yk = y == k; % one hot if highest y == k --> 5000x1, for all 5000 rows 1 if y matches k right now
+    col = a3(:, k); % get the heuristic for all 5000 rows at current col
+    Jk = 1 / m * sum(-yk .* log(col) - (1 - yk) .* log(1 - col));
+    J = J + Jk;
+end
 
+tnb_1 = Theta1(:, 2:end); % get all weights except for bias
+tnb_2 = Theta2(:, 2:end);
+% disp(size(tnb_1))
+% disp(size(tnb_2))
+tnb_1_sqr = tnb_1 .^ 2; % square all weights
+tnb_2_sqr = tnb_2 .^ 2;
+% disp(lambda)
+lambda_error = lambda/(2*m); % get scaling factor
+lambda_error = lambda_error * (sum(sum(tnb_1_sqr))+sum(sum(tnb_2_sqr))); % sum all weights of all rows and columns and scale them back down
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+J = J + lambda_error; % add regularization weight
 
 % -------------------------------------------------------------
+
+for t = 1:m
+  % setup 1 hot encoded array where 1 signales the target index. 10x1
+  y_hot = ([1:num_labels]==y(t))';
+  % get the hepothesis of the forward pass and subtract the target value
+  delta_3 = (a3(t,:) - y_hot');
+
+  % delta 3 now contains the error for each output row
+
+  % delta 2 (of the first hidden layer) is the error of the ouput layer, scaled by the weights and scaled by the gradient of the first, not yet activated values of the first hidden layer
+  delta_2 = Theta2' * delta_3' .* sigmoidGradient([1, z2(t, :)])';
+  delta_2 = delta_2(2:end);
+  
+  % gradient with respect to X
+  Theta1_grad = Theta1_grad + delta_2 * X(t,:);
+  % gradient first respect to first activation
+  Theta2_grad = Theta2_grad + delta_3' * a2(t,:);
+end
+
+Theta1_grad = Theta1_grad / m;
+Theta2_grad = Theta2_grad / m;
+
+% add regulularization
+Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + lambda / m * Theta1(:,2:end);
+Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + lambda / m * Theta2(:,2:end); 
+
+
 
 % =========================================================================
 
