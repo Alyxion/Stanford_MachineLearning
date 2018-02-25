@@ -53,9 +53,20 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+for i=1:m % for all ranges do...
+   
+   sub_X = X(1:i, :);
+   sub_y = y(1:i);
+   
+   % compute theta
+   theta = trainLinearReg(sub_X, sub_y, lambda);
+   
+   % calculate trainig error, use lambda of zero
+   error_train(i) = linearRegCostFunction(sub_X, sub_y, theta, 0);
 
-
-
+   % calculate error for entire validation set
+   error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+end
 
 
 

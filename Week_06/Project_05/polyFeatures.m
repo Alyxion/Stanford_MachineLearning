@@ -15,10 +15,22 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
+% disp(p) % 8 
+% disp(size(X)) % 12x1
+% disp(size(X_poly)) % 12x8
+
+%disp("turn")
+% disp(X)
+for i=1:p
+   % disp("Beginning")
+   X_poly(:,i) = X .^ i;
+
+   % disp(X_sq)
+end
 
 
-
-
+% disp(X)
+%disp(X_poly)
 
 % =========================================================================
 

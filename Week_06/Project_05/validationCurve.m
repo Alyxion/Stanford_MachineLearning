@@ -39,14 +39,19 @@ error_val = zeros(length(lambda_vec), 1);
 %
 %
 
+for i = 1:length(lambda_vec)
 
+   lambda = lambda_vec(i);
 
+   [errors_train errors_val] = learningCurve(X, y, Xval, yval, lambda);
+   
+   % calculate trainig error, use lambda of zero
+   error_train(i) = errors_train(end);
 
+   % calculate error for entire validation set
+   error_val(i) = errors_val(end);
 
-
-
-
-
+end
 
 % =========================================================================
 
