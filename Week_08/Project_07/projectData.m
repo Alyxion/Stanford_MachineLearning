@@ -18,8 +18,18 @@ Z = zeros(size(X, 1), K);
 %                    projection_k = x' * U(:, k);
 %
 
+% for example if reducing from 50x2, so 50 datasets with 2 features to
+% a 1 dimensional set with 50 rows and 1 feature`
+% disp(size(X)) % 50x2
+% disp(size(K)) % 1x1, single scalar
+% disp(size(Z)) % 50x1
+% disp(size(U)) % 2x2, always features x features
+% disp(size(U_reduce)) % 2x1, reduced dimensions
 
-
+% 2x2 -> 2x1
+U_reduce = U(:, 1:K);
+% 50x2 x 2x1 -> 50x1
+Z = X * U_reduce;
 
 % =============================================================
 

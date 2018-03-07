@@ -22,17 +22,21 @@ for epsilon = min(pval):stepsize:max(pval)
     %               
     % Note: You can use predictions = (pval < epsilon) to get a binary vector
     %       of 0's and 1's of the outlier predictions
+    
+    cvPredictions = pval<epsilon;
 
+    % calculate true positive (predicted true and should be true)
+    tp = sum((cvPredictions == 1) & (yval == 1));
+    % calculate false positive (predicted true but should be negative)
+    fp = sum((cvPredictions == 1) & (yval == 0));
+    % calculate false negative (predicted negative, but should be positive)
+    fn = sum((cvPredictions == 0) & (yval == 1));
 
-
-
-
-
-
-
-
-
-
+    % calculate precision (how many of the positive flagged elements are really positive)
+    prec = tp/(tp+fp);
+    % calculate recall (how many times did the algorithm fail)
+    rec = tp/(tp+fn);
+    F1 = (2*prec*rec)/(prec+rec);
 
 
     % =============================================================

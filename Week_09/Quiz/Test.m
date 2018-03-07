@@ -1,0 +1,1 @@
+A = [4,5; 6,7]B = [2,3; 1,4]R = [1, 1; 0,1]% total = sum(sum(A(R==1)*B(R==1))C = A * B; total = sum(sum((A * B) .* R))total = sum(sum(C(R == 1)))

@@ -36,7 +36,7 @@ plot(X(:, 1), X(:, 2), 'bo');
 axis([0.5 6.5 2 8]); axis square;
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+% pause;
 
 
 %% =============== Part 2: Principal Component Analysis ===============
@@ -65,7 +65,7 @@ fprintf(' U(:,1) = %f %f \n', U(1,1), U(2,1));
 fprintf('\n(you should expect to see -0.707107 -0.707107)\n');
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+% pause;
 
 
 %% =================== Part 3: Dimension Reduction ===================
@@ -102,6 +102,7 @@ hold off
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+return
 
 %% =============== Part 4: Loading and Visualizing Face Data =============
 %  We start the exercise by first loading and visualizing the dataset.
@@ -151,7 +152,7 @@ fprintf('The projected data Z has a size of: ')
 fprintf('%d ', size(Z));
 
 fprintf('\n\nProgram paused. Press enter to continue.\n');
-pause;
+%pause;
 
 %% ==== Part 7: Visualization of Faces after PCA Dimension Reduction ====
 %  Project images to the eigen space using the top K eigen vectors and 

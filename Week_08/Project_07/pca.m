@@ -20,9 +20,11 @@ S = zeros(n);
 %       number of examples).
 %
 
+% calculate covariance matrix to find related features
+Sigma = (1/m) * (X' * X);
 
-
-
+% compute eigenvectors
+[U, S, V] = svd(Sigma);
 
 
 

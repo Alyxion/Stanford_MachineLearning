@@ -25,4 +25,14 @@ X_rec = zeros(size(Z, 1), size(U, 1));
 
 % =============================================================
 
+% disp(size(Z)) % 50x1
+% disp(size(U)) % 2x2
+% disp(size(U_red)) % 2x1
+% disp(size(K)) % 1x1
+% disp(size(X_rec)) % 50x2
+
+U_red = U(:, 1:K);
+
+X_rec = Z*U_red'; % 50x1 * 1x2 = 50x2
+
 end
