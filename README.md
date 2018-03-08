@@ -1,6 +1,8 @@
-##Stanford Online's Machine Learning course by Andrew Ng##
+### Stanford Online's Machine Learning course by Andrew Ng ###
 
 [![](images/SML_Logo.png)](http://www.coursera.com)
+
+---
 
 <img src='images/Coursera_Machine_Learning.png' width=600>
 
@@ -9,11 +11,13 @@ ___
 In this repository you can find my results of all projects and relevant exercises of the Stanford Online's Machine Learning course developed by professor Andrew Ng.
 ___
 
-###About###
+### About ###
 
-This 11 week course imparts the knowledge about several machine learning techniques for all sorts of mundane business and industry tasks, from predicting sales based upon recorded data via automatic clustering of social groups, detecting anomalies within a production chain or building complex multi-component machine learning solutions and optimzing them.
+This 11 week course imparts the knowledge about several machine learning techniques for all sorts of mundane business and industry tasks, from predicting sales based upon recorded data, the automatic clustering of social groups, detecting anomalies within a production chain in industry applications or building complex multi-component machine learning solutions and how to optimize them.
 
-###Content###
+___
+
+### Content ###
 
 * **Week 1 - Intro**
     * Introduction
@@ -29,9 +33,9 @@ This 11 week course imparts the knowledge about several machine learning techniq
     * <img src="Week_03/Project_02/images/log_reg_solved.png" width=400><br><img src="Week_03/Project_02/images/high_dimensional_solved.png" width=400>
 * **Week 4 - Neural networks**
     * Non-linear representations, neurons, the brain and neural networks
-    * <img src="Week_04/Project_03/images/prediction.png" width=600>
+    * <img src="Week_04/Project_03/images/Prediction.png" width=600>
 * **Week 5 - Backpropagation**
-    * Backpropagation, cost functions and the importance of well fit random initialization for successfull symetry breaking
+    * Backpropagation, cost functions and the importance of well fit random initialization for successfull symmetry breaking
     * <img src="Week_05/Project_04/images/input_examples.png" width=400><br><img src="Week_05/Project_04/images/detection_relevance.png" width=400>
 * **Week 6 - Error metrics and bias vs variance**
     * Evaluating a hypothesis
