@@ -17,6 +17,7 @@ This 11 week course imparts the knowledge about several machine learning techniq
 
 ___
 
+
 ### Content ###
 
 * **Week 1 - Intro**
